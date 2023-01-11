@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.training.springmvc.model.Product;
+import com.training.springmvc.model.User;
 import com.training.springmvc.service.ProductService;
 
 @Controller
@@ -37,6 +39,31 @@ public class ProductController {
 		map.addAttribute("productList", prdList);
 		
 		return "product";
+		
+	}
+	@RequestMapping(value="/addProduct", method = RequestMethod.POST)
+	public String addProduct(ModelMap map, @ModelAttribute("product") Product product) {
+		
+		boolean flag = service.addProduct(product);
+		
+		if(flag) {
+			map.addAttribute("msg", "Product Added Successfully!!");
+			return "addProduct";
+		}
+		else {
+			map.addAttribute("msg", "Error in Adding new Product!!");
+			return "addProduct";
+		}
+		
+		
+	}
+	
+	@RequestMapping(value="/addProduct", method = RequestMethod.GET)
+	public String addProductPage() {
+		
+			return "addProduct";
+	
+		
 		
 	}
 

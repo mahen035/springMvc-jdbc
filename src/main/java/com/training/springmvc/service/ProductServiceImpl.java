@@ -26,4 +26,10 @@ public class ProductServiceImpl implements ProductService{
 		return productList;
 	}
 
+	@Override
+	public boolean addProduct(Product product) {
+		
+		return productDao.createProduct(product);
+	}
+
 }

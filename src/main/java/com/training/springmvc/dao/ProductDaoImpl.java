@@ -42,7 +42,8 @@ public class ProductDaoImpl implements ProductDao{
 	@Override
 	public boolean createProduct(Product product) {
 		
-		return false;
+		return jdbcTemplate.update(SQL_CREATE_PRODUCT, product.getProdId(), product.getProdName()
+				, product.getProdDesc(), product.getPrice()) > 0;
 	}
 
 }
