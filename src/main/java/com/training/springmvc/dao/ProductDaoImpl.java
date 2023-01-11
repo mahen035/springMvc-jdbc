@@ -36,7 +36,7 @@ public class ProductDaoImpl implements ProductDao{
 	@Override
 	public List<Product> getProducts() {
 		
-		return null;
+		return jdbcTemplate.query(SQL_GET_PRODUCTS, new ProductMapper());
 	}
 
 	@Override

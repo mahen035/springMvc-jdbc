@@ -9,6 +9,7 @@
 <body>
 <h1>Hello World from Spring MVC...</h1>
 <h2>${msg}</h2>
-<a href = "product">Click here to get the product</a>
+<a href = "product">Click here to get the product</a><br/><br/>
+<a href = "product/all">Click to get all products</a>
 </body>
 </html>

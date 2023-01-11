@@ -1,5 +1,7 @@
 package com.training.springmvc.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,13 +19,24 @@ public class ProductController {
 	ProductService service;
 	
 	@RequestMapping( method = RequestMethod.GET)
-	public String getAllProducts(ModelMap map) {
+	public String getProduct(ModelMap map) {
 		
 		Product p1 = service.getProduct();
 		
 		System.out.println(p1.getProdName());
 		
 		return "login";
+		
+	}
+	
+	@RequestMapping(value="/all", method = RequestMethod.GET)
+	public String getAllProducts(ModelMap map) {
+		
+		List<Product> prdList = service.getAllProducts();
+		
+		map.addAttribute("productList", prdList);
+		
+		return "product";
 		
 	}
 

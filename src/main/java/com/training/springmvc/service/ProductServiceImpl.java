@@ -1,5 +1,7 @@
 package com.training.springmvc.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,12 @@ public class ProductServiceImpl implements ProductService{
 	public Product getProduct() {
 		Product p1 = productDao.getProductById(103);
 		return p1;
+	}
+
+	@Override
+	public List<Product> getAllProducts() {
+		List<Product> productList = productDao.getProducts();
+		return productList;
 	}
 
 }
