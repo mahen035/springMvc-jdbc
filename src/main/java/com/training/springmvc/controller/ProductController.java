@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.training.springmvc.model.Product;
-import com.training.springmvc.model.User;
 import com.training.springmvc.service.ProductService;
 
 @Controller
@@ -63,8 +63,20 @@ public class ProductController {
 		
 			return "addProduct";
 	
+	}
+	
+	@RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
+	public String delete(ModelMap map, @PathVariable("id") Integer id) {
 		
-		
+		if(service.deleteProduct(id)) {
+			map.addAttribute("delMsg", "Product Deleted Successfully!!");
+			return "product";
+		}
+		else {
+			map.addAttribute("delMsg", "Product Not Deleted!!");
+			return "product";
+		}
+			
 	}
 
 }

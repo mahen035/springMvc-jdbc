@@ -16,17 +16,20 @@
 			<th>Prod_Name</th>
 			<th>Prod_Desc</th>
 			<th>Price</th>
+			<th>Action</th>
 			<c:forEach items="${productList}" var="product">
 				<tr>
 					<td>${product.getProdId()}</td>
 					<td>${product.getProdName()}</td>
 					<td>${product.getProdDesc()}</td>
 					<td>${product.getPrice()}</td>
+					<td><a href = "delete/${product.getProdId()}">Delete</a></td>
 				</tr>
 
 			</c:forEach>
 
 	</table>
+	<h3 style="color:red">${delMsg}</h3>
 
 </body>
 </html>

@@ -15,5 +15,9 @@ public interface ProductDao {
 	//This method will create a new product in the database
 	boolean createProduct(Product product);
 	
+	boolean deleteProduct(int prodId);
+	
+	
+	
 
 }

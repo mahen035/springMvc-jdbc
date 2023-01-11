@@ -37,6 +37,8 @@ public class HomeController {
 		//map.addAttribute("msg", "This value is set using ModelMap..");
 		return "login";
 	}
+	
+	
 
 }
 
