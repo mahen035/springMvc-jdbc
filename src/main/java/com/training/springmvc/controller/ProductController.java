@@ -78,5 +78,30 @@ public class ProductController {
 		}
 			
 	}
+	
+	@RequestMapping(value="/update/{id}/{name}/{desc}/{price}", method = RequestMethod.GET)
+	public String update(ModelMap map, @PathVariable("id") Integer id, @PathVariable("name") String name, @PathVariable("desc") String desc, @PathVariable("price") Integer price) {
+		
+		map.addAttribute("id", id);
+		map.addAttribute("name", name);
+		map.addAttribute("desc", desc);
+		map.addAttribute("price", price);
+		
+		return "update";
+	}
+	
+	@RequestMapping(value="/updateProduct", method = RequestMethod.POST)
+	public String updateProduct(ModelMap map, @ModelAttribute("product") Product product) {
+		
+		if(service.updateProduct(product)) {
+			map.addAttribute("updateMsg", "Product Updated Successfully!!");
+			return "update";
+		}
+		else {
+			map.addAttribute("updateMsg", "Product Not Updated!!");
+			return "update";
+		}
+			
+	}
 
 }

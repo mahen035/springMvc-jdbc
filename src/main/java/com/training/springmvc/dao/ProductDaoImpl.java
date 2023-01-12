@@ -24,6 +24,8 @@ public class ProductDaoImpl implements ProductDao{
 	
 	private final String SQL_DELETE_PRODUCT = "delete from product where prod_id = ?";
 	
+	private final String SQL_UPDATE_PRODUCT = "update product set prod_name = ?, prod_desc = ?, price = ? where prod_id = ?";
+	
 	@Autowired
 	public ProductDaoImpl(DataSource dataSource) {
 		jdbcTemplate = new JdbcTemplate(dataSource);
@@ -52,6 +54,13 @@ public class ProductDaoImpl implements ProductDao{
 	public boolean deleteProduct(int prodId) {
 		
 		return jdbcTemplate.update(SQL_DELETE_PRODUCT, prodId) > 0;
+	}
+
+	@Override
+	public boolean updateProduct(Product product) {
+		
+		return jdbcTemplate.update(SQL_UPDATE_PRODUCT, product.getProdName(), product.getProdDesc(),
+				                                       product.getPrice(), product.getProdId())> 0;
 	}
 
 }

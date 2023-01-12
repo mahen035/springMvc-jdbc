@@ -23,7 +23,10 @@
 					<td>${product.getProdName()}</td>
 					<td>${product.getProdDesc()}</td>
 					<td>${product.getPrice()}</td>
-					<td><a href = "delete/${product.getProdId()}">Delete</a></td>
+					<td><a href = "delete/${product.getProdId()}">Delete</a>&nbsp;
+						<a href = "update/${product.getProdId()}/${product.getProdName()}/${product.getProdDesc()}/${product.getPrice()}">Update</a>
+						           
+					</td>
 				</tr>
 
 			</c:forEach>
