@@ -64,3 +64,6 @@ public class ProductDaoImpl implements ProductDao{
 	}
 
 }
+
+// JPA: Java Persistence API
+// Hibernate: ORM framework
