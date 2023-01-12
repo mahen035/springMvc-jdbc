@@ -2,6 +2,8 @@ package com.training.springmvc.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -91,7 +93,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/updateProduct", method = RequestMethod.POST)
-	public String updateProduct(ModelMap map, @ModelAttribute("product") Product product) {
+	public String updateProduct(ModelMap map, @ModelAttribute("product") Product product, HttpServletRequest req) {
 		
 		if(service.updateProduct(product)) {
 			map.addAttribute("updateMsg", "Product Updated Successfully!!");
