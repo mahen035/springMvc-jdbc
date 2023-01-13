@@ -15,6 +15,8 @@
 	    	<input type = "submit" value = "LogIn"/><br><br>
    	    </form>
    	    <div style="color:red">${error}</div>
+   	    
+   	    
 
 </body>
 </html>

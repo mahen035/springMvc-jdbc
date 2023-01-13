@@ -11,6 +11,7 @@
 <h2>${msg}</h2>
 <a href = "product">Click here to get the product</a><br/><br/>
 <a href = "product/all">Click to get all products</a><br/><br/>
-<a href = "product/addProduct">Click to get all products</a>
+<a href = "product/addProduct">Click to add products</a><br/><br/>
+<a href = "addBook">Click to add Book</a>
 </body>
 </html>

@@ -10,8 +10,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan(basePackages="com.training.springmvc")
 @EnableWebMvc
+@ComponentScan(basePackages="com.training.springmvc")
+
 public class AppConfig {
 	
 	@Bean
@@ -33,5 +34,7 @@ public class AppConfig {
 		return driver;
 		
 	}
+	
+	
 
 }
